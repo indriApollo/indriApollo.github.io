@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="my_camera" style="width:320px; height:240px;"></div>
+	<div id="my_result"></div>
+
+	<script src="webcam.js"></script>
+	<script src="color-thief.js"></script>
+	<script type="text/javascript">
+	Webcam.set({
+        width: 320,
+        height: 240,
+        image_format: 'jpeg',
+        jpeg_quality: 20,
+    });
+
+    Webcam.attach( document.getElementById("my_camera") );
+
+    function take_snapshot() {
+        Webcam.snap( function(data_uri, canvas, context) {
+            document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+
+            var colorThief = new ColorThief();
+			var rgb = colorThief.getColor(canvas, context);
+			console.log(rgb);
+			document.body.style.backgroundColor = "rgb("+rgb[0]+","+rgb[1]+","+rgb[2]+")";
+        } );
+    }
+
+    Webcam.on( 'live', function() {
+        // camera is live, showing preview image
+        // (and user has allowed access)
+        setInterval(function(){ take_snapshot() }, 333);
+    } );
+    
+	</script>
+</body>
+</html>
