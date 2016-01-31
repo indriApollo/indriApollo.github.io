@@ -14,7 +14,7 @@
         width: 320,
         height: 240,
         image_format: 'jpeg',
-        jpeg_quality: 50,
+        jpeg_quality: 20,
     });
 
     Webcam.attach( document.getElementById("my_camera") );
@@ -30,7 +30,12 @@
         } );
     }
 
-    setInterval(function(){ take_snapshot() }, 333);
+    Webcam.on( 'live', function() {
+        // camera is live, showing preview image
+        // (and user has allowed access)
+        setInterval(function(){ take_snapshot() }, 333);
+    } );
+    
 	</script>
 </body>
 </html>
