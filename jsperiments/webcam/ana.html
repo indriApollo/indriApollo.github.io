@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <style type="text/css">
+
+    video {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #cam {
+        display: none;
+    }
+
+    #dark {
+        display: none;
+        background-color: black;
+    }
+    </style>
+</head>
+<body>
+	<div id="cam"></div>
+
+    <video id="light" preload="auto" autoplay>
+        <source src="ana-light.mp4" type="video/mp4">
+        Your browser does not support mp4 video.
+    </video>
+
+    <video id="dark" preload="auto">
+        <source src="ana-dark.mp4" type="video/mp4">
+        Your browser does not support mp4 video.
+    </video>
+
+    <audio id="lAudio" preload="auto" loop>
+        <source src="ana-glockenspiel1.mp3" type="audio/mpeg">
+        Your browser does not support mp3 audio.
+    </audio> 
+
+	<script src="webcam.js"></script>
+	<script src="color-thief.js"></script>
+
+	<script type="text/javascript">
+
+    prevstate = "light";
+    camON = false;
+
+    document.getElementById('light').addEventListener('ended',lightLoop,false);
+
+    function lightLoop(e) {
+        e.target.currentTime = 24;
+        e.target.play();
+    }
+
+	Webcam.set({
+        width: 320,
+        height: 240,
+        image_format: 'jpeg',
+        jpeg_quality: 20,
+    });
+
+    Webcam.attach( document.getElementById("cam") );
+
+    function take_snapshot() {
+        Webcam.snap( function(data_uri, canvas, context) {
+
+            var colorThief = new ColorThief();
+			var rgb = colorThief.getColor(canvas, context);
+			var c = (rgb[0]+rgb[1]+rgb[2]);
+            console.log("c = "+c);
+            var l = document.getElementById("light");
+            var d = document.getElementById("dark");
+            var a = document.getElementById("lAudio");
+
+            
+            if(c < 100 && prevstate == "light") {
+                console.log("light->dark");
+                //light to dark
+                l.style.display = "none";
+                d.style.display = "block";
+                a.pause();
+                l.pause();
+                d.currentTime = 0;
+                d.play();
+                prevstate = "dark";
+
+            } else if(c > 100 && prevstate == "dark"){
+                console.log("dark->light");
+                //dark to light
+                d.style.display = "none";
+                l.style.display = "block";
+                d.pause();
+                l.currentTime = 21;
+                l.play();
+                a.currentTime = 0;
+                a.play();
+                prevstate = "light";
+            }
+        } );
+    }
+
+    Webcam.on( 'live', function() {
+        // camera is live, showing preview image
+        // (and user has allowed access)
+        camON = true;        
+    } );
+
+    setTimeout( function() {
+        console.log("intro end");
+        document.getElementById("lAudio").play();
+        if(!camON) {
+            alert("La webcam n'est pas disponible !");
+        }
+        else {
+            setInterval(function(){ take_snapshot() }, 333);
+        }
+
+    }, 21000);
+    
+    
+	</script>
+</body>
+</html>
