@@ -6,6 +6,7 @@
 	<title>key_encoder</title>
 	<script type="text/javascript" src="md5.js"></script>
 	<script type="text/javascript">
+	//This code blows, but I still need it for legacy stuff
 		function encode(string){
 			var signs = ["&","#","/","@","!","$"];
 			var s_index = 0;
@@ -26,7 +27,7 @@
 			}
 			document.getElementById('res').value = encoded_string;
 		}
-		function hide(el){
+		function show(el){
 			if(el.innerHTML == "hide"){
 				document.getElementById("in").type="password";
 				el.innerHTML = "show";
@@ -48,11 +49,15 @@
 			width: 80%;
 			text-align: center;
 		}
+		
+		button{
+			float: right;
+		}
 	</style>
 </head>
-	<input type="text" id="in"><br/>
+	<input type="password" id="in"><br/>
 	<button onclick="encode(getElementById('in').value)">encode</button>
-	<button onclick="hide(this)">hide</button>
+	<button onclick="show(this)">show</button>
 	<br/>
 	<input type="text" id="res" readonly>
 </body>
