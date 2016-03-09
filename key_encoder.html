@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
+	<title>key_encoder</title>
+	<script type="text/javascript" src="md5.js"></script>
+	<script type="text/javascript">
+		function encode(string){
+			var signs = ["&","#","/","@","!","$"];
+			var s_index = 0;
+			var hash = CryptoJS.MD5(string);
+			hash = hash+""; //parse char
+			var n = hash.charCodeAt(0);
+			n = Math.round(n/10);
+			var encoded_string = "";
+			for (var i = 0; i < hash.length; i++) {
+				if(i%n == 0){
+					encoded_string += signs[s_index];
+					if(s_index < signs.length-1){
+						s_index++;
+					}
+					else s_index = 0;
+				}
+				else encoded_string += hash[i];
+			}
+			document.getElementById('res').value = encoded_string;
+		}
+		function hide(el){
+			if(el.innerHTML == "hide"){
+				document.getElementById("in").type="password";
+				el.innerHTML = "show";
+			}
+			else{
+				document.getElementById("in").type="text";
+				document.getElementById("res").type="text";
+				el.innerHTML = "hide";
+			}
+		}
+	</script>
+	<style type="text/css">
+		input,button{
+			display: block;
+			margin: auto;
+			font-size: 3em;
+		}
+		input{
+			width: 80%;
+			text-align: center;
+		}
+	</style>
+</head>
+	<input type="text" id="in"><br/>
+	<button onclick="encode(getElementById('in').value)">encode</button>
+	<button onclick="hide(this)">hide</button>
+	<br/>
+	<input type="text" id="res" readonly>
+</body>
+</html>
