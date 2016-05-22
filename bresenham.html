@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bresenham demo</title>
+	<style type="text/css">
+	.demo {
+		margin: auto;
+		width: 466px;
+	}
+	#raster {
+		border-spacing: 0;
+		border: 1px solid black;
+	}
+	#raster td {
+		border: 1px solid black;
+		height: 10px;
+		width: 10px;
+	}
+	.demo input{
+		width: 100%;
+	}
+	#display {
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+		<div class="demo">
+			<table id="raster"></table>
+			<input type="range" min="0" max="360" oninput="drawYaw(16,16,this.value,14)">
+			<h1 id="display"></h1>
+		</div>
+		<script type="text/javascript">
+			function buildRaster() {
+				var table = document.getElementById("raster");
+				for (y = 0; y < 33; y++) {
+					var tr = document.createElement("tr");
+					for (x = 0; x < 33; x++) {
+						var td = document.createElement("td");
+						tr.appendChild(td);
+					}
+					table.appendChild(tr);
+				}
+			}
+
+			function drawPixel(x,y,c) {
+				document.getElementById("raster").getElementsByTagName("tr")[(33-y)].getElementsByTagName("td")[x].style.backgroundColor = c;
+			}
+
+			function clearRaster() {
+				var table = document.getElementById("raster");
+				for (y = 0; y < 33; y++) {
+					var tr = table.getElementsByTagName("tr")[y];
+					for (x = 0; x < 33; x++) {
+						tr.getElementsByTagName("td")[x].style.backgroundColor = "white";
+					}
+				}
+			}
+
+			function bresenham(x0,y0,x1,y1) {
+				var dx = Math.abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
+				var dy = Math.abs(y1 - y0), sy = y0 < y1 ? 1 : -1; 
+				var err = (dx>dy ? dx : -dy)/2;
+				 
+				while (true) {
+					drawPixel(x0,y0,"red");
+					if (x0 === x1 && y0 === y1) break;
+				    var e2 = err;
+				    if (e2 > -dx) { err -= dy; x0 += sx; }
+				    if (e2 < dy) { err += dx; y0 += sy; }
+				}
+			}
+
+			function pointsFromAngle(xorig,yorig,ang,linelen) {
+
+				rad = ang * Math.PI / 180;
+				
+				var x = Math.round(Math.cos(rad)*linelen);
+				var y = Math.round(Math.sin(rad)*linelen);
+
+				console.log("x:"+x+" y:"+y);
+				
+				var x0 = xorig + x;
+				var y0 = yorig + y;
+				var x1 = xorig - x;
+				var y1 = yorig - y;
+
+				if(ang > 90 && ang <= 270) {
+					x0 = xorig - x;
+					y0 = xorig - y;
+					x1 = xorig + x;
+					y1 = yorig + y;
+				}
+
+				console.log("x0:"+x0+" y0:"+y0+" x1:"+x1+" y1:"+y1);
+				return [x0,y0,x1,y1];
+			}
+
+			function drawYaw(x,y,ang,n) {
+
+				clearRaster();
+				var p = pointsFromAngle(x,y,ang,n);
+				bresenham(p[0],p[1],p[2],p[3]);
+				drawPixel(x,y,"black");
+				document.getElementById("display").textContent = ang;
+			}
+
+			buildRaster();
+			drawYaw(16,16,180,14)
+		</script>
+</body>
+</html>
