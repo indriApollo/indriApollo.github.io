@@ -59,8 +59,9 @@
 			}
 		}
 		_in.addEventListener('keyup',function(e){
-			if(e.keycode===13)
+			if(e.keyCode===13)
 				encode(this.value);
+			console.log(e.keyCode);
 		},false);
 	</script>
 </body>
