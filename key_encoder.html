@@ -4,9 +4,30 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes">
 	<title>key_encoder</title>
+	<style type="text/css">
+		input,button{
+			display: block;
+			margin: auto;
+			font-size: 3em;
+		}
+		input{
+			width: 80%;
+			text-align: center;
+		}
+	</style>
+</head>	
+	<input type="password" id="in"><br/>
+	<button type="button" onclick="encode(getElementById('in').value)">encode</button>
+	<button type="button" onclick="show(this)">show</button>
+	<br/>
+	<input type="text" id="res" readonly>
+	
 	<script type="text/javascript" src="md5.js"></script>
 	<script type="text/javascript">
 	//This code blows, but I still need it for legacy stuff
+		var _res = document.getElementById('res');
+		var _in = document.getElementById('in');
+		
 		function encode(string){
 			var signs = ["&","#","/","@","!","$"];
 			var s_index = 0;
@@ -25,36 +46,22 @@
 				}
 				else encoded_string += hash[i];
 			}
-			document.getElementById('res').value = encoded_string;
+			_res.value = encoded_string;
 		}
 		function show(el){
 			if(el.innerHTML == "hide"){
-				document.getElementById("in").type="password";
+				_in.type="password";
 				el.innerHTML = "show";
 			}
 			else{
-				document.getElementById("in").type="text";
-				document.getElementById("res").type="text";
+				_in.type="text";
 				el.innerHTML = "hide";
 			}
 		}
+		_in.addEventListener('keyup',function(e){
+			if(e.keycode===13)
+				encode(this.value);
+		})
 	</script>
-	<style type="text/css">
-		input,button{
-			display: block;
-			margin: auto;
-			font-size: 3em;
-		}
-		input{
-			width: 80%;
-			text-align: center;
-		}
-	</style>
-</head>	
-	<input type="password" onkeyup="function(e){if(e.keycode===13)encode(this.value);}" id="in"><br/>
-	<button type="button" onclick="encode(getElementById('in').value)">encode</button>
-	<button type="button" onclick="show(this)">show</button>
-	<br/>
-	<input type="text" id="res" readonly>
 </body>
 </html>
