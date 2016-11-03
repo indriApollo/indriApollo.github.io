@@ -50,12 +50,10 @@
 			text-align: center;
 		}
 	</style>
-</head>
-	<form>
-		<input type="password" onkeyup="function(e){if(e.keycode===13)encode(this.value);}" id="in"><br/>
-		<button type="button" onclick="encode(getElementById('in').value)">encode</button>
-		<button type="button" onclick="show(this)">show</button>
-	</form>
+</head>	
+	<input type="password" onkeyup="function(e){if(e.keycode===13)encode(this.value);}" id="in"><br/>
+	<button type="button" onclick="encode(getElementById('in').value)">encode</button>
+	<button type="button" onclick="show(this)">show</button>
 	<br/>
 	<input type="text" id="res" readonly>
 </body>
