@@ -51,9 +51,11 @@
 		}
 	</style>
 </head>
-	<input type="password" id="in"><br/>
-	<button type="submit" onclick="encode(getElementById('in').value)">encode</button>
-	<button type="button" onclick="show(this)">show</button>
+	<form>
+		<input type="password" onkeyup="function(e){if(e.keycode===13)encode(this.value);}" id="in"><br/>
+		<button type="submit" onclick="encode(getElementById('in').value)">encode</button>
+		<button type="button" onclick="show(this)">show</button>
+	</form>
 	<br/>
 	<input type="text" id="res" readonly>
 </body>
