@@ -1,0 +1,3 @@
+[submodule "jsperiments/GreeKB"]
+	path = jsperiments/GreeKB
+	url = https://github.com/indriApollo/GreeKB.git
