@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RLEROUX CV</title>
+    <style>
+        body {
+            /* A4 */
+            width: 21cm;
+            height: 29.7cm;
+            margin: 20px auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h4 {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: initial;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-pic {
+            height: 220px;
+            border-radius: 50%;
+        }
+
+        .profile-banner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-name {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .profile-role {
+            color: darkslategray;
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .profile-contact {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-left {
+            flex: 2;
+        }
+
+        .main-right {
+            flex: 1;
+        }
+
+        .company-logo {
+            height: 32px;
+        }
+
+        .xp-list {
+            padding-left: 16px;
+        }
+
+        .xp-list li {
+            margin-bottom: 16px;
+        }
+
+        .xp-date {
+            color: darkslategray;
+            font-size: 0.8em;
+            line-height: 2;
+        }
+
+        .role-list {
+            margin-top: 4px;
+            padding-left: 16px;
+        }
+
+        .role-list li {
+            margin: initial;
+        }
+
+        .skills-list {
+            padding-left: 16px;
+        }
+
+        .edu-list {
+            padding-left: 16px;
+        }
+
+        .lang-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .lang {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="profile-banner">
+            <img src="https://indriapollo.github.io/assets/rleroux.jpg" class="profile-pic">
+            <div>
+                <h1 class="profile-name">Raphaël Leroux</h1>
+                <h3 class="profile-role">Software Developer</h3>
+                <ul class="profile-contact">
+                    <li>📧 indri.apollo@gmail.com</li>
+                    <li>🧰 <a target="_blank" href="https://github.com/indriApollo/">https://github.com/indriApollo/</a>
+                    </li>
+                    <li>💼 <a target="_blank"
+                            href="https://www.linkedin.com/in/rapha%C3%ABl-leroux-b58687139/">https://www.linkedin.com/in/raphaël-leroux-b58687139/</a>
+                    </li>
+                    <li>🗺️ Brussels 1000</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+    </header>
+    <main>
+        <div class="main-content">
+            <div class="main-left">
+                <h2>EXPERIENCE</h2>
+                <h3><img src="https://ubidata.com/templates/ubidata/images/logo.png" class="company-logo"><a
+                        target="_blank" href="https://www.linkedin.com/company/ubidata-sa/">Ubidata sa/nv</a></h3>
+                <p>Ubidata develops telematics and logistics solutions for transport companies, warehouses,
+                    distributors, ...</p>
+                <p>Ubidata has a small but polyvalent development team, with people often wearing multiple hats.
+                    My role evolved with the needs of the company.</p>
+                <ul class="xp-list">
+                    <li>
+                        <h4>Lead Developer</h4>
+                        <span class="xp-date"><i>February 2021 - Present</i></span><br>
+                        As lead I focus on code quality and repaying tech debt.<br>
+                        <ul class="role-list">
+                            <li>I review our software architecture and design decisions.</li>
+                            <li>I mandated code reviews, standardized our libray usage and evangelize new technologies
+                                and methods.</li>
+                            <li>I assist and mentor the team.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Backend Software Developer</h4>
+                        <span class="xp-date"><i>September 2018 - February 2021</i></span><br>
+                        Within the backend team I was the bridge with the telematics division.<br>
+                        <ul class="role-list">
+                            <li>I architecured and implemented new telematic data processing services using .NET core,
+                                Grpc, Protobuf, Redis.</li>
+                            <li>I migrated legacy Windows .NET Framework projects to Linux dockerized .NET core.</li>
+                            <li>I worked on the track and trace platform's ASP.NET web API.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>System Administrator</h4>
+                        <span class="xp-date"><i>May 2018 - February 2021</i></span><br>
+                        I managed the office and colocated datacenter IT environement.<br>
+                        <ul class="role-list">
+                            <li>I upgraded our production infrastructure and automated TLS with Let's Encrypt.</li>
+                            <li>I administered our two MySQL databases.</li>
+                            <li>I introduced our self-hosted Gitlab and runners instances.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Embedded Software Developer</h4>
+                        <span class="xp-date"><i>September 2017 - March 2020</i></span><br>
+                        I worked on our in-house ARM32 telematics device's C firmware.<br>
+                        <ul class="role-list">
+                            <li>I developed sensor drivers and refactored inter-processor communication.</li>
+                            <li>I improved our u-blox GNSS driver and custom TCP/IP protocol.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-right">
+                <div>
+                    <h2>SKILLS</h2>
+                    <ul class="skills-list">
+                        <li><b>C#</b>, C, Python, Javascript</li>
+                        <li><b>.NET core</b>, <b>ASP.NET webapi</b></li>
+                        <li><b>MySQL</b>, Redis</li>
+                        <li>Grpc, Protobuf, JSON, XML, XSLT</li>
+                        <li>Git, Gitlab-CI, Docker</li>
+                        <li>Linux / windows server administration, ESXi</li>
+                        <li>Service architecure, API design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>EDUCATION</h2>
+                    <ul class="edu-list">
+                        <li>
+                            <h4><a target="_blank" href="https://www.kuleuven.be/english/campuses/de-nayer-campus">KU
+                                    Leuven Faculty of Engineering Technology,<br>De Nayer Campus</a></h4>
+                            <span class="xp-date"><i>2014 - 2017</i></span><br>
+                            <b>Bachelor's degree Embedded-ICT</b>
+                        </li>
+                        <br>
+                        <li>
+                            <h4><a target="_blank"
+                                    href="https://www.cepesjodoigne.be/lenseignement-technique-de-qualification-le-troisieme-degre-5eme-et-6eme/#4emeimm">CEPES
+                                    Jodoigne</a></h4>
+                            <span class="xp-date"><i>2012 - 2014</i></span><br>
+                            <b>IT Technician</b>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>LANGUAGES</h2>
+                    <ul class="lang-list">
+                        <li>🇫🇷 <b class="lang">Français</b> <i>Native</i></li>
+                        <li>🇳🇱 <b class="lang">Nederlands</b> <i>Native</i></li>
+                        <li>🇬🇧 <b class="lang">English</b> <i>Full professional</i></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>HOBBIES</h2>
+                    Drumming, Simracing, Trackdays, Auto mechanic
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
