@@ -10,7 +10,11 @@
             width: 21cm;
             height: 29.7cm;
             margin: 20px auto;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            border-bottom: 4px dotted #000;
         }
 
         h4 {
@@ -52,6 +56,7 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
+            font-size: 1.1em;
         }
 
         .main-content {
@@ -71,7 +76,15 @@
             height: 32px;
         }
 
-        .xp-list {
+        .edu-logo {
+            height: 20px;
+            padding-right: 6px;
+        }
+
+        .xp-list,
+        .role-list,
+        .skills-list,
+        .edu-list {
             padding-left: 16px;
         }
 
@@ -87,19 +100,10 @@
 
         .role-list {
             margin-top: 4px;
-            padding-left: 16px;
         }
 
         .role-list li {
             margin: initial;
-        }
-
-        .skills-list {
-            padding-left: 16px;
-        }
-
-        .edu-list {
-            padding-left: 16px;
         }
 
         .lang-list {
@@ -110,6 +114,14 @@
         .lang {
             display: inline-block;
             width: 100px;
+        }
+
+        .bc-belgium {
+            border-image: linear-gradient(to right, #000000 33%, #fdda24 33% 66%, #ef3340 66%) 1;
+        }
+
+        .bc-gradient:hover {
+            border-image: linear-gradient(to right, #e74c3c 16%, #e67e22 16% 33%, #f1c40f 33% 49%, #27ae60 49% 66%, #2980b9 66% 83%, #8e44ad 83%) 1;
         }
     </style>
 </head>
@@ -127,7 +139,7 @@
                     <li>🧰 <a target="_blank" href="https://github.com/indriApollo/">https://github.com/indriApollo/</a>
                     </li>
                     <li>💼 <a target="_blank"
-                            href="https://www.linkedin.com/in/rapha%C3%ABl-leroux-b58687139/">https://www.linkedin.com/in/raphaël-leroux-b58687139/</a>
+                            href="https://www.linkedin.com/in/raphael-leroux/">https://www.linkedin.com/in/raphael-leroux/</a>
                     </li>
                     <li>🗺️ Brussels 1000</li>
                 </ul>
@@ -138,11 +150,11 @@
     <main>
         <div class="main-content">
             <div class="main-left">
-                <h2>EXPERIENCE</h2>
+                <h2 class="bc-blue">EXPERIENCE</h2>
                 <h3><img src="https://ubidata.com/templates/ubidata/images/logo.png" class="company-logo"><a
                         target="_blank" href="https://www.linkedin.com/company/ubidata-sa/">Ubidata sa/nv</a></h3>
-                <p>Ubidata develops telematics and logistics solutions for transport companies, warehouses,
-                    distributors, ...</p>
+                <p>Ubidata develops telematics and logistics solutions for transport companies, warehouses and
+                    distributors.</p>
                 <p>Ubidata has a small but polyvalent development team, with people often wearing multiple hats.
                     My role evolved with the needs of the company.</p>
                 <ul class="xp-list">
@@ -155,6 +167,8 @@
                             <li>I mandated code reviews, standardized our library usage and evangelize new technologies
                                 and methods.</li>
                             <li>I assist and mentor the team.</li>
+                            <li>I am in contact with client technical stakeholders and analyze their business
+                                requirements.</li>
                         </ul>
                     </li>
                     <li>
@@ -198,7 +212,8 @@
                         <li><b>MySQL</b>, Redis</li>
                         <li>Grpc, Protobuf, JSON, XML, XSLT</li>
                         <li>Git, Gitlab-CI, Docker</li>
-                        <li>Linux / windows server administration, ESXi</li>
+                        <li>Linux / Windows server administration, ESXi</li>
+                        <li>DNS, SMTP, Let's Encrypt, NGINX, Grafana</li>
                         <li>Service architecure, API design</li>
                     </ul>
                 </div>
@@ -206,14 +221,17 @@
                     <h2>EDUCATION</h2>
                     <ul class="edu-list">
                         <li>
-                            <h4><a target="_blank" href="https://www.kuleuven.be/english/campuses/de-nayer-campus">KU
-                                    Leuven Faculty of Engineering Technology,<br>De Nayer Campus</a></h4>
+                            <h4><img src="https://stijl.kuleuven.be/releases/latest/img/svg/logo.svg"
+                                    class="edu-logo"><a target="_blank"
+                                    href="https://www.kuleuven.be/english/campuses/de-nayer-campus">De Nayer Campus</a>
+                            </h4>
                             <span class="xp-date"><i>2014 - 2017</i></span><br>
                             <b>Bachelor's degree Embedded-ICT</b>
                         </li>
                         <br>
                         <li>
-                            <h4><a target="_blank"
+                            <h4><img src="https://www.cepesjodoigne.be/wp-content/uploads/2020/05/logocepes.png"
+                                    class="edu-logo"><a target="_blank"
                                     href="https://www.cepesjodoigne.be/lenseignement-technique-de-qualification-le-troisieme-degre-5eme-et-6eme/#4emeimm">CEPES
                                     Jodoigne</a></h4>
                             <span class="xp-date"><i>2012 - 2014</i></span><br>
@@ -222,7 +240,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h2>LANGUAGES</h2>
+                    <h2 class="bc-belgium">LANGUAGES</h2>
                     <ul class="lang-list">
                         <li>🇫🇷 <b class="lang">Français</b> <i>Native</i></li>
                         <li>🇳🇱 <b class="lang">Nederlands</b> <i>Native</i></li>
@@ -230,8 +248,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h2>HOBBIES</h2>
-                    Drumming, Simracing, Trackdays, Auto mechanic
+                    <h2 class="bc-gradient">HOBBIES</h2>
+                    Drumming, Simracing, Trackdays, Auto mechanic, Scouting
                 </div>
             </div>
         </div>
