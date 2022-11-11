@@ -14,15 +14,17 @@
 			margin-left: 10px;
 			font-size: 40px;
 		}
-		pre:hover{
-			cursor: pointer;
-		}
 		.content {
 			margin: auto;
 			width: 670px;
 			background-color: white;
 			box-shadow: 0 0 10px black;
 		}
+		.bare-link {
+
+                        all: unset;
+                        cursor: pointer;
+                }
 		.tux {
 			background-color: black;
 			color: white;
@@ -35,20 +37,22 @@
 </head>
 <body>
 <div class="content">
-	<a href="https://github.com/indriApollo">
-	<pre class="head" onclick="gotoGit()">
+	<a href="https://github.com/indriApollo" class="bare-link">
+	<pre class="head">
 
-	██╗███╗   ██╗██████╗ ██████╗ ██╗ █████╗ ██████╗  ██████╗ ██╗     ██╗      ██████╗ 
+	██╗███╗   ██╗██████╗ ██████╗ ██╗ █████╗ ██████╗  ██████╗ ██╗     ██╗      ██████╗
 	██║████╗  ██║██╔══██╗██╔══██╗██║██╔══██╗██╔══██╗██╔═══██╗██║     ██║     ██╔═══██╗
 	██║██╔██╗ ██║██║  ██║██████╔╝██║███████║██████╔╝██║   ██║██║     ██║     ██║   ██║
 	██║██║╚██╗██║██║  ██║██╔══██╗██║██╔══██║██╔═══╝ ██║   ██║██║     ██║     ██║   ██║
 	██║██║ ╚████║██████╔╝██║  ██║██║██║  ██║██║     ╚██████╔╝███████╗███████╗╚██████╔╝
-	╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ 
-                                                                                  
+	╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝
+
 	</pre>
 	</a>
-	<h3 style="text-align: center;"><a href="mailto:indri.apollo@gmail.com">indri.apollo@gmail.com</a> | <a href="mailto:raphael.leroux@indriapollo.be">raphael.leroux@indriapollo.be (alias)</a></h3>
-	<h4><a rel="me" href="https://infosec.exchange/@indriApollo">Mastodon</a></h4>
+	<div style="text-align: center;">
+		<h3><a href="mailto:indri.apollo@gmail.com">indri.apollo@gmail.com</a> | <a href="mailto:raphael.leroux@indriapollo.be">raphael.leroux@indriapollo.be (alias)</a></h3>
+		<h4><a rel="me" href="https://infosec.exchange/@indriApollo">Mastodon</a></h4>
+	</div>
 	<ul>
 		<li><a href="jsperiments/webcam/cam.html">cam.html</a></li>
 		<li><a href="jsperiments/webcam/ana.html">ana.html</a></li>
@@ -59,9 +63,9 @@
 		<li><a href="jsperiments/GreeKB/index.html">GreeKB</a></li>
 		<li><a href="THEvine.html">THE vine</a></li>
 	</ul>
-	
-	<pre class="tux" onclick="gotoGit()">
- 
+
+	<pre class="tux" data-credit="http://www.ascii-art.de/ascii/jkl/linux.txt">
+
 	                 .88888888:.
 	                88888888.88888.
 	              .8888888888888888.
